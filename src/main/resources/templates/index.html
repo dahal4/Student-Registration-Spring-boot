@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+</head>
+<body>
+<div>
+<!--    <table>-->
+    <br>
+    <h1 align="center">
+    <strong >Student Registration Crud Operation Using Spring boot</strong>
+    </h1>
+    <br>
+    <br>
+    <tr>
+
+        <div align = "center" >
+            <div class="panel-body" align = "center" >
+                <table class="table table-hover table-striped">
+                    <thead class="bg-info">
+                    <tr>
+                        <th>Student ID</th>
+                        <th>Student Name</th>
+                        <th>Age</th>
+                        <th>Course</th>
+                        <th>Fee</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr  th:each="student : ${listStudent }">
+                        <td th:text="${student.id}">Student ID</td>
+                        <td th:text="${student.name}">StudentName</td>
+                        <td th:text="${student.age}">Age</td>
+                        <td th:text="${student.course}">Course</td>
+                        <td th:text="${student.fee}">Fee</td>
+                        <td>
+                            <a th:href="@{'/edit/' + ${student.id}}" class ="btn btn-success">Edit</a>
+                        </td>
+                        <td>
+                            <a th:href="@{'/delete/' + ${student.id}}" class ="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div>
+
+    </tr>
+
+    <tr>
+        <div align = "center" >
+            <h3><a  th:href="@{'/new'}" class ="btn btn-info">Add new</a></h3>
+        </div>
+
+    </tr>
+
+
+    </tbody>
+    </table>
+    </div>
+</body>
+</html>
